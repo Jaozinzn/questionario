@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de Autoestima</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+      line-height: 1.6;
+    }
+    .question-group {
+      margin-bottom: 2em;
+      padding: 1em;
+      border: 1px solid #ddd;
+      border-radius: 0.5em;
+      display: none;
+    }
+    .question-group.active {
+      display: block;
+    }
+    .question-group h3 {
+      color: #333;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resultado-final {
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Teste de Autoestima</h1>
+  <p>Leia cada afirmação com atenção e escolha a opção que melhor representa o quanto você concorda ou discorda. Não há respostas certas ou erradas; seja honesto(a).</p>
+
+  <form id="quiz-form">
+    <!-- Autopercepção e valorização pessoal -->
+    <div id="question-1" class="question-group active">
+      <h3>Autopercepção e valorização pessoal</h3>
+      <p>1. Eu me sinto digno(a) de respeito e consideração.</p>
+      <label><input type="radio" name="q1" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q1" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q1" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q1" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q1" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-2" class="question-group active">
+        <h3>Autopercepção e valorização pessoal</h3>
+        <p>2. Eu acredito que minhas opiniões têm valor.</p>
+        <label><input type="radio" name="q2" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q2" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q2" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q2" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q2" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-3" class="question-group active">
+        <h3>Autopercepção e valorização pessoal</h3>
+        <p>3. Eu me sinto orgulhoso(a) das minhas realizações.</p>
+        <label><input type="radio" name="q3" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q3" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q3" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q3" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q3" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-4" class="question-group active">
+        <h3>Autopercepção e valorização pessoal</h3>
+        <p>4. Eu me vejo como uma pessoa capaz e competente.</p>
+        <label><input type="radio" name="q4" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q4" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q4" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q4" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q4" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-5" class="question-group active">
+        <h3>Autopercepção e valorização pessoal</h3>
+        <p>5. Eu acho fácil reconhecer minhas qualidades positivas.</p>
+        <label><input type="radio" name="q5" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q5" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q5" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q5" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q5" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+
+    <div id="question-6" class="question-group">
+      <h3>Autoaceitação</h3>
+      <p>6. Eu aceito meus defeitos sem me julgar duramente.</p>
+      <label><input type="radio" name="q6" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q6" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q6" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q6" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q6" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-7" class="question-group">
+        <h3>Autoaceitação</h3>
+        <p>7. Eu me sinto confortável com quem sou, mesmo sabendo que não sou perfeito(a).</p>
+        <label><input type="radio" name="q7" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q7" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q7" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q7" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q7" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+      
+      <div id="question-8" class="question-group">
+        <h3>Autoaceitação</h3>
+        <p>8. Eu valorizo minha individualidade e autenticidade.</p>
+        <label><input type="radio" name="q8" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q8" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q8" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q8" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q8" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+      
+      <div id="question-9" class="question-group">
+        <h3>Autoaceitação</h3>
+        <p>9.Eu não me comparo constantemente com os outros de maneira negativa.</p>
+        <label><input type="radio" name="q9" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q9" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q9" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q9" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q9" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+      
+      <div id="question-10" class="question-group">
+        <h3>Autoaceitação</h3>
+        <p>10. Eu acredito que sou tão valioso(a) quanto qualquer outra pessoa.</p>
+        <label><input type="radio" name="q10" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q10" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q10" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q10" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q10" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+    <!-- Exemplo para questão 11 -->
+    <div id="question-11" class="question-group">
+      <h3>Resiliência emocional</h3>
+      <p>11. Eu consigo lidar bem com críticas e feedbacks negativos.</p>
+      <label><input type="radio" name="q11" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q11" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q11" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q11" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q11" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-12" class="question-group">
+        <h3>Resiliência emocional</h3>
+        <p>12. Eu sou capaz de aprender com meus erros sem me sentir inferior.</p>
+        <label><input type="radio" name="q12" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q12" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q12" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q12" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q12" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-13" class="question-group">
+        <h3>Resiliência emocional</h3>
+        <p>13. Eu não me deixo abalar excessivamente por pensamentos negativos sobre mim mesmo(a).</p>
+        <label><input type="radio" name="q13" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q13" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q13" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q13" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q13" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+      
+      <div id="question-14" class="question-group">
+        <h3>Resiliência emocional</h3>
+        <p>14. Eu consigo manter minha autoestima mesmo em momentos de dificuldade.</p>
+        <label><input type="radio" name="q14" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q14" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q14" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q14" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q14" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+      
+      <div id="question-15" class="question-group">
+        <h3>Resiliência emocional</h3>
+        <p>15. Eu busco melhorar sem me cobrar excessivamente.</p>
+        <label><input type="radio" name="q15" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q15" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q15" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q15" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q15" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+    <!-- Exemplo para questão 16 -->
+    <div id="question-16" class="question-group">
+      <h3>Relacionamento com os outros</h3>
+      <p>16. Eu me sinto à vontade para expressar minhas opiniões, mesmo quando discordo dos outros.</p>
+      <label><input type="radio" name="q16" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q16" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q16" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q16" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q16" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-17" class="question-group">
+        <h3>Relacionamento com os outros</h3>
+        <p>17. Eu acredito que mereço ser tratado(a) com respeito pelos outros.</p>
+        <label><input type="radio" name="q17" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q17" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q17" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q17" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q17" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-18" class="question-group">
+        <h3>Relacionamento com os outros</h3>
+        <p>18. Eu consigo dizer "não" quando necessário, sem me sentir culpado(a).</p>
+        <label><input type="radio" name="q18" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q18" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q18" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q18" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q18" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-19" class="question-group">
+        <h3>Relacionamento com os outros</h3>
+        <p>19. Eu não sinto necessidade de agradar a todos para me sentir aceito(a).</p>
+        <label><input type="radio" name="q19" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q19" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q19" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q19" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q19" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+      <div id="question-20 n" class="question-group">
+        <h3>Relacionamento com os outros</h3>
+        <p>20. Eu me sinto valorizado(a) em meus relacionamentos pessoais e profissionais</p>
+        <label><input type="radio" name="q20" value="0" required> Discordo totalmente</label><br>
+        <label><input type="radio" name="q20" value="0"> Discordo</label><br>
+        <label><input type="radio" name="q20" value="0"> Neutro</label><br>
+        <label><input type="radio" name="q20" value="1"> Concordo</label><br>
+        <label><input type="radio" name="q20" value="1"> Concordo totalmente</label><br>
+        <button type="button" onclick="nextQuestion()">Próxima</button>
+      </div>
+
+    <!-- Exemplo para questão 21 -->
+    <div id="question-21" class="question-group">
+      <h3>Atitudes em relação a si mesmo(a)</h3>
+      <p>21. Eu confio na minha capacidade de alcançar meus objetivos.</p>
+      <label><input type="radio" name="q21" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q21" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q21" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q21" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q21" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-22" class="question-group">
+      <h3>Atitudes em relação a si mesmo(a)</h3>
+      <p>22. Eu acredito que mereço coisas boas na vida.</p>
+      <label><input type="radio" name="q22" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q22" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q22" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q22" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q22" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-23" class="question-group">
+      <h3>Atitudes em relação a si mesmo(a)</h3>
+      <p>23.Eu não me deixo definir apenas pelos meus fracassos.</p>
+      <label><input type="radio" name="q23" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q23" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q23" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q23" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q23" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-24" class="question-group">
+      <h3>Atitudes em relação a si mesmo(a)</h3>
+      <p>24. Eu invisto tempo e energia no meu autocuidado.</p>
+      <label><input type="radio" name="q24" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q24" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q24" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q24" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q24" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <div id="question-25" class="question-group">
+      <h3>Atitudes em relação a si mesmo(a)</h3>
+      <p>25. Eu me sinto confortável ao receber elogios ou reconhecimentos.</p>
+      <label><input type="radio" name="q25" value="0" required> Discordo totalmente</label><br>
+      <label><input type="radio" name="q25" value="0"> Discordo</label><br>
+      <label><input type="radio" name="q25" value="0"> Neutro</label><br>
+      <label><input type="radio" name="q25" value="1"> Concordo</label><br>
+      <label><input type="radio" name="q25" value="1"> Concordo totalmente</label><br>
+      <button type="button" onclick="nextQuestion()">Próxima</button>
+    </div>
+
+    <!-- Questão final -->
+    <div id="resultado-final">
+      <h2>Resultado</h2>
+      <p id="resultado"></p>
+      <button onclick="reiniciar()">Refazer Questionário</button>
+    </div>
+  </form>
+
+  <script>
+    let currentQuestion = 0;
+    const fieldsets = document.querySelectorAll('.question-group');
+    const resultadoFinal = document.getElementById('resultado-final');
+
+    function showQuestion(index) {
+      fieldsets.forEach((fieldset, i) => {
+        fieldset.style.display = i === index ? 'block' : 'none';
+      });
+    }
+
+    function calcularResultado() {
+      let pontos = 0;
+
+      fieldsets.forEach((fieldset) => {
+        const inputs = fieldset.querySelectorAll('input[type="radio"]');
+        inputs.forEach((input) => {
+          if (input.checked) {
+            pontos += parseInt(input.value);
+          }
+        });
+      });
+
+      let mensagem = `Sua pontuação total foi ${pontos}. `;
+      const totalPerguntas = 25;
+      const maxPontos = totalPerguntas;
+
+      if (pontos >= maxPontos * 0.8) {
+        mensagem += 'Alta autoestima.';
+      } else if (pontos >= maxPontos * 0.5) {
+        mensagem += 'Autoestima moderada.';
+      } else {
+        mensagem += 'Baixa autoestima.';
+      }
+
+      resultadoFinal.style.display = 'block';
+      document.getElementById('resultado').textContent = mensagem;
+      fieldsets.forEach((fieldset) => {
+        fieldset.style.display = 'none';
+      });
+    }
+
+    function nextQuestion() {
+      const currentFieldset = fieldsets[currentQuestion];
+      const inputs = currentFieldset.querySelectorAll('input[type="radio"]');
+      const respondeu = Array.from(inputs).some(input => input.checked);
+
+      if (!respondeu) {
+        alert('Por favor, escolha uma opção antes de continuar.');
+        return;
+      }
+
+      currentQuestion++;
+      if (currentQuestion < fieldsets.length) {
+        showQuestion(currentQuestion);
+      } else {
+        calcularResultado();
+      }
+    }
+
+    function reiniciar() {
+      document.getElementById('quiz-form').reset();
+      currentQuestion = 0;
+      showQuestion(currentQuestion);
+      resultadoFinal.style.display = 'none';
+    }
+
+    showQuestion(currentQuestion);
+  </script>
+</body>
+</html>
